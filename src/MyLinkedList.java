@@ -1,6 +1,3 @@
-import java.util.Collection;
-import java.util.LinkedList;
-
 public class MyLinkedList<E> {
     transient int razm = 0;
     transient Uzel<E> first;
@@ -63,17 +60,17 @@ public class MyLinkedList<E> {
         return razm;
     }
     Uzel<E> uzel(int ind){
+        Uzel<E> x;
         if (ind < (razm >>1)){
-            Uzel<E> x = first;
+            x = first;
             for (int i = 0; i < ind; i++)
                 x = x.next;
-            return x;
         } else {
-            Uzel<E> x = last;
+            x = last;
             for (int i = razm - 1; i > ind; i--)
                 x = x.prev;
-            return x;
         }
+        return x;
     }
 
     /**
